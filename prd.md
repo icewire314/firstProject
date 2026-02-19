@@ -121,3 +121,80 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 7. Clear button resets the canvas to white
 8. Resizing the browser — canvas scales proportionally
 9. On mobile/tablet — touch drawing works without scrolling the page
+
+---
+
+## Task List
+
+### HTML Structure
+
+- [ ] Create `index.html` with proper DOCTYPE, `<head>`, and `<body>`
+- [ ] Set browser tab title to "Drawing Prompt"
+- [ ] Add embedded `<style>` block for all CSS
+- [ ] Add embedded `<script>` block for all JavaScript
+
+### Visual Layout & Style
+
+- [ ] Set page background to white with sans-serif font
+- [ ] Add app title "Drawing Prompt" displayed prominently at top
+- [ ] Center all content on the page
+- [ ] Style toolbar as a row above the canvas
+
+### Random Drawing Prompt
+
+- [ ] Define array of ~20 drawing prompt strings (cat, house, tree, etc.)
+- [ ] Write function to select a random prompt from the array on load
+- [ ] Display prompt in format "Draw: [prompt]" below the title
+
+### Canvas Setup
+
+- [ ] Add `<canvas>` element with internal resolution 800×500
+- [ ] Set canvas CSS to scale to window width while preserving aspect ratio
+- [ ] Add thin visible border around the canvas
+- [ ] Fill canvas background white on initialization
+
+### Drawing Engine (Mouse)
+
+- [ ] Track mouse `mousedown` to begin a stroke and record start position
+- [ ] Track `mousemove` to accumulate points while mouse button is held
+- [ ] Implement smooth bezier curves using `quadraticCurveTo` with midpoints
+- [ ] Set `lineCap` and `lineJoin` to `'round'` for natural stroke feel
+- [ ] Set fixed brush size to 8px
+- [ ] Track `mouseup` and `mouseleave` to end a stroke
+- [ ] Scale mouse coordinates using `canvas.width / rect.width` and `canvas.height / rect.height`
+
+### Touch Support
+
+- [ ] Add `touchstart` handler mapped to stroke begin (using `e.touches[0]`)
+- [ ] Add `touchmove` handler mapped to stroke continue
+- [ ] Add `touchend` handler mapped to stroke end
+- [ ] Call `e.preventDefault()` on all touch events to block page scroll
+
+### Color Buttons
+
+- [ ] Add Brown button (`#795548` background, white text) to toolbar
+- [ ] Add Purple button (`#7b1fa2` background, white text) to toolbar
+- [ ] Set Brown as the default active color on load
+- [ ] Switch active drawing color when a color button is clicked
+
+### Eraser
+
+- [ ] Add Eraser button (grey `#9e9e9e` background, white text) to toolbar
+- [ ] Implement eraser as white-paint stroke (same 8px size as drawing)
+
+### Clear Button
+
+- [ ] Add Clear button (red `#e53935` background, white text) to toolbar
+- [ ] On click, fill entire canvas with white
+- [ ] On click, clear the saved undo snapshot
+
+### Active Tool Indicator
+
+- [ ] Apply a bright white outline to whichever tool button is currently active
+- [ ] Update the active indicator when user switches tools
+
+### Single-Level Undo
+
+- [ ] Save `getImageData` snapshot on each `mousedown` / `touchstart`
+- [ ] Listen for `Ctrl+Z` (and `Cmd+Z` on Mac) keydown event
+- [ ] Restore the saved snapshot via `putImageData` on undo
