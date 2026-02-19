@@ -58,6 +58,7 @@ assert('canvas has width: 100%', /canvas\s*\{[^}]*width\s*:\s*100%/.test(html));
 assert('canvas has height: auto (preserves aspect ratio)', /canvas\s*\{[^}]*height\s*:\s*auto/.test(html));
 assert('canvas has cursor: crosshair', /canvas\s*\{[^}]*cursor\s*:\s*crosshair/.test(html));
 assert('canvas has a border', /canvas\s*\{[^}]*border\s*:/.test(html));
+assert('canvas border is 1px solid (thin visible)', /canvas\s*\{[^}]*border\s*:\s*1px\s+solid\s+\S/.test(html));
 
 console.log(`\n${passed} passed, ${failed} failed`);
 if (failed > 0) process.exit(1);
