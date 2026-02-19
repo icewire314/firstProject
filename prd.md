@@ -21,42 +21,65 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 
 ### 1. Random Drawing Prompt
 - On page load, a prompt is randomly selected from a built-in list (~20 items)
-- Displayed prominently above the canvas (e.g. "Draw: a cat")
+- Displayed prominently above the toolbar and canvas (e.g. "Draw: a cat")
 - Examples: a cat, a house, a tree, a rocket, a fish, a mountain, a sun, a car, a flower, a robot, a bicycle, a penguin, a dragon, a lighthouse, a pizza, a castle, a cloud, a submarine, a cactus, a butterfly
 
 ### 2. Drawing Canvas
-- Large white canvas (800×500px, responsive)
-- Freehand drawing with mouse (click + drag)
-- Basic touch support for tablet/mobile
+- Internal resolution: 800×500px (8:5 aspect ratio)
+- Scales to fit window width — shrinks/grows proportionally with browser width, centered on page
+- White background
+- Thin visible border to distinguish canvas from page background
+- Freehand drawing with smooth bezier curves (not jagged straight lines)
+- Full touch support for mobile and tablet (no page scroll while drawing)
 
 ### 3. Two Preset Colors
 - **Color A:** Brown (`#795548`)
 - **Color B:** Purple (`#7b1fa2`)
 - User clicks a color button to select the active color
-- Active color is visually indicated (highlighted button)
+- Active tool is visually indicated (highlighted button)
 
-### 4. Brush Size
-- Slider to adjust brush size (range: 2–20px)
+### 4. Eraser
+- Dedicated eraser button in the toolbar
+- Erases drawn content at the same 8px brush size
+- Active state visually indicated like color buttons
 
-### 5. Clear Button
-- Resets the canvas to a blank white state
+### 5. Fixed Brush Size
+- All drawing (and erasing) uses a fixed 8px medium brush
+- No size slider — simplicity over configurability
+- Round line caps and joins for a natural feel
+
+### 6. Single Undo
+- Ctrl+Z (or Cmd+Z on Mac) reverts the last stroke
+- One level of undo only — no multi-step history
+
+### 7. Clear Button
+- Resets the entire canvas to blank white
+- Also resets the undo history
 
 ---
 
 ## Layout
 
 ```
-┌─────────────────────────────────┐
-│        Drawing Prompt           │  ← app title
-│   Draw: [random prompt here]    │  ← prompt
-├─────────────────────────────────┤
-│                                 │
-│           CANVAS                │  ← drawing area
-│                                 │
-├─────────────────────────────────┤
-│  🟫 Brown  🟣 Purple  ── Size  [Clear] │  ← toolbar
-└─────────────────────────────────┘
+┌─────────────────────────────────────────┐
+│           Drawing Prompt                 │  ← app title
+│      Draw: [random prompt here]          │  ← prompt text
+├─────────────────────────────────────────┤
+│  [■ Brown] [■ Purple] [◻ Eraser] [✕ Clear]  │  ← toolbar (above canvas)
+├─────────────────────────────────────────┤
+│                                         │
+│              CANVAS                     │  ← scales to window width
+│         (thin border)                   │
+└─────────────────────────────────────────┘
 ```
+
+---
+
+## Visual Style
+- Minimal and clean
+- White page background
+- Sans-serif font
+- Toolbar buttons with clear active/inactive states
 
 ---
 
@@ -65,6 +88,8 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 - User accounts or history
 - More than 2 colors
 - Text tools, shape tools, fill tools
+- Multi-step undo/redo
+- Adjustable brush size
 - Server-side logic
 
 ---
@@ -72,13 +97,17 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 ## Tech Stack
 - Pure HTML, CSS, JavaScript
 - Single `index.html` file — no dependencies, no build step
+- Works by opening the file directly in a browser (no server needed)
 
 ---
 
 ## Verification
 1. Open `index.html` in any modern browser
-2. A random prompt appears on load
-3. Drawing on the canvas produces brown strokes by default
-4. Clicking the purple button switches stroke color to purple
-5. The brush size slider changes stroke thickness
-6. The clear button resets the canvas to white
+2. A random prompt appears on load (different each reload)
+3. Drawing on the canvas produces smooth brown strokes by default
+4. Clicking Purple switches stroke color to purple
+5. Clicking Eraser erases drawn content
+6. Ctrl+Z / Cmd+Z reverts the last stroke
+7. Clear button resets the canvas to white
+8. Resizing the browser — canvas scales proportionally
+9. On mobile/tablet — touch drawing works without scrolling the page
