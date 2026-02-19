@@ -34,10 +34,19 @@
       margin-bottom: 12px;
     }
 
+    #canvas-container {
+      width: 100%;
+      max-width: 800px;
+    }
+
     #toolbar {
       display: flex;
+      flex-direction: row;
       gap: 8px;
-      margin-bottom: 8px;
+      padding: 8px;
+      background: #f5f5f5;
+      border: 1px solid #bbb;
+      border-bottom: none;
     }
 
     #toolbar button {
@@ -61,7 +70,6 @@
     canvas {
       display: block;
       width: 100%;
-      max-width: 800px;
       border: 1px solid #bbb;
       cursor: crosshair;
     }
@@ -70,13 +78,15 @@
 <body>
   <h1>Drawing Prompt</h1>
   <div id="prompt"></div>
-  <div id="toolbar">
-    <button id="btn-brown">Brown</button>
-    <button id="btn-purple">Purple</button>
-    <button id="btn-eraser">Eraser</button>
-    <button id="btn-clear">Clear</button>
+  <div id="canvas-container">
+    <div id="toolbar">
+      <button id="btn-brown">Brown</button>
+      <button id="btn-purple">Purple</button>
+      <button id="btn-eraser">Eraser</button>
+      <button id="btn-clear">Clear</button>
+    </div>
+    <canvas id="canvas" width="800" height="500"></canvas>
   </div>
-  <canvas id="canvas" width="800" height="500"></canvas>
 
   <script>
     const PROMPTS = [
