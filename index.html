@@ -114,6 +114,7 @@
     let lastY = 0;
     let snapshot = null;
     let activeTool = 'brown';
+    let points = [];
 
     const COLORS = { brown: '#795548', purple: '#7b1fa2', eraser: '#fff' };
 
@@ -137,6 +138,7 @@
     function startStroke(x, y) {
       snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
       isDrawing = true;
+      points = [{ x, y }];
       lastX = x;
       lastY = y;
       ctx.beginPath();
@@ -149,6 +151,7 @@
 
     function continueStroke(x, y) {
       if (!isDrawing) return;
+      points.push({ x, y });
       const midX = (lastX + x) / 2;
       const midY = (lastY + y) / 2;
       ctx.quadraticCurveTo(lastX, lastY, midX, midY);
