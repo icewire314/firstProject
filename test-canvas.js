@@ -44,5 +44,18 @@ assert('canvas CSS has width: 100% (CSS-scaled to fit window width)',
 assert('canvas CSS has height: auto (preserves aspect ratio)',
   /canvas\s*\{[^}]*height\s*:\s*auto/.test(html));
 
+// Canvas initialization: background filled white
+assert('canvas background is filled white on init (fillStyle set to #fff)',
+  /ctx\.fillStyle\s*=\s*['"]#fff['"]/.test(html));
+assert('canvas background is filled white on init (fillRect called with full canvas size)',
+  /ctx\.fillRect\s*\(\s*0\s*,\s*0\s*,\s*canvas\.width\s*,\s*canvas\.height\s*\)/.test(html));
+
+// Confirm init fill happens before any drawing event listeners
+assert('canvas white fill occurs before drawing event listeners are attached', (() => {
+  const fillIdx = html.indexOf("ctx.fillRect(0, 0, canvas.width, canvas.height)");
+  const mousedownIdx = html.indexOf("mousedown");
+  return fillIdx !== -1 && mousedownIdx !== -1 && fillIdx < mousedownIdx;
+})());
+
 console.log(`\n${passed} passed, ${failed} failed`);
 if (failed > 0) process.exit(1);
