@@ -40,7 +40,8 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 
 ### 4. Eraser
 - Dedicated eraser button in the toolbar
-- Erases drawn content at the same 8px brush size
+- Paints white over drawn content (does not make pixels transparent)
+- Same 8px brush size as drawing
 - Active state visually indicated like color buttons
 
 ### 5. Fixed Brush Size
@@ -55,6 +56,7 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 ### 7. Clear Button
 - Resets the entire canvas to blank white
 - Also resets the undo history
+- Styled with a red background to signal it is a destructive action
 
 ---
 
@@ -79,7 +81,15 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 - Minimal and clean
 - White page background
 - Sans-serif font
-- Toolbar buttons with clear active/inactive states
+- Browser tab title: "Drawing Prompt"
+- No hint or instructional text — clean interface
+- Toolbar buttons:
+  - Brown button: brown background (`#795548`), white text
+  - Purple button: purple background (`#7b1fa2`), white text
+  - Eraser button: grey background (`#9e9e9e`), white text
+  - Clear button: red background (`#e53935`), white text
+- Active tool indicated by bright white outline around the button
+- Brown is the default active tool on load
 
 ---
 
