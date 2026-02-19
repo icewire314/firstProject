@@ -40,5 +40,9 @@ assert('<canvas> is inside #canvas-container',
 assert('canvas CSS has width: 100% (CSS-scaled to fit window width)',
   /canvas\s*\{[^}]*width\s*:\s*100%/.test(html));
 
+// CSS: canvas preserves aspect ratio
+assert('canvas CSS has height: auto (preserves aspect ratio)',
+  /canvas\s*\{[^}]*height\s*:\s*auto/.test(html));
+
 console.log(`\n${passed} passed, ${failed} failed`);
 if (failed > 0) process.exit(1);
