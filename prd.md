@@ -30,8 +30,8 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 - Basic touch support for tablet/mobile
 
 ### 3. Two Preset Colors
-- **Color A:** Black (`#000000`)
-- **Color B:** Red (`#e53935`)
+- **Color A:** Brown (`#795548`)
+- **Color B:** Purple (`#7b1fa2`)
 - User clicks a color button to select the active color
 - Active color is visually indicated (highlighted button)
 
@@ -54,7 +54,7 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 │           CANVAS                │  ← drawing area
 │                                 │
 ├─────────────────────────────────┤
-│  ⬛ Black  🔴 Red  ── Size  [Clear] │  ← toolbar
+│  🟫 Brown  🟣 Purple  ── Size  [Clear] │  ← toolbar
 └─────────────────────────────────┘
 ```
 
@@ -78,7 +78,7 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 ## Verification
 1. Open `index.html` in any modern browser
 2. A random prompt appears on load
-3. Drawing on the canvas produces black strokes by default
-4. Clicking the red button switches stroke color to red
+3. Drawing on the canvas produces brown strokes by default
+4. Clicking the purple button switches stroke color to purple
 5. The brush size slider changes stroke thickness
 6. The clear button resets the canvas to white
