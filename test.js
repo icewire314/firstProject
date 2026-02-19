@@ -24,6 +24,7 @@ assert('Has <head> element', /<head>/i.test(html));
 assert('Has charset meta tag', /<meta[^>]+charset/i.test(html));
 assert('Has viewport meta tag', /<meta[^>]+viewport/i.test(html));
 assert('Has <title> with "Drawing Prompt"', /<title>Drawing Prompt<\/title>/i.test(html));
+assert('Has <h1> with text "Drawing Prompt"', /<h1[^>]*>Drawing Prompt<\/h1>/i.test(html));
 assert('Has closing </head>', /<\/head>/i.test(html));
 assert('Has <body> element', /<body>/i.test(html));
 assert('Has closing </body>', /<\/body>/i.test(html));

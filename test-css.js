@@ -20,6 +20,17 @@ console.log('CSS style block tests\n');
 // Structure
 assert('<style> block exists in <head>', /<head[\s\S]*?<style[\s\S]*?<\/style>[\s\S]*?<\/head>/.test(html));
 
+// Title
+assert('h1 has prominent font-size (>=2rem)', (() => {
+  const m = html.match(/h1\s*\{([^}]+)\}/);
+  if (!m) return false;
+  const fs = m[1].match(/font-size:\s*([\d.]+)(rem|px|em)/);
+  if (!fs) return false;
+  const v = parseFloat(fs[1]), u = fs[2];
+  return (u === 'rem' && v >= 2) || (u === 'em' && v >= 2) || (u === 'px' && v >= 32);
+})());
+assert('h1 has font-weight set', /h1\s*\{[^}]*font-weight\s*:/.test(html));
+
 // Reset
 assert('* selector with box-sizing: border-box', /\*\s*\{[^}]*box-sizing\s*:\s*border-box/.test(html));
 
