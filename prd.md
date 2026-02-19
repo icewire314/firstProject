@@ -128,73 +128,73 @@ Anyone who wants a quick, fun drawing exercise in the browser.
 
 ### HTML Structure
 
-- [ ] Create `index.html` with proper DOCTYPE, `<head>`, and `<body>`
-- [ ] Set browser tab title to "Drawing Prompt"
-- [ ] Add embedded `<style>` block for all CSS
-- [ ] Add embedded `<script>` block for all JavaScript
+- [x] Create `index.html` with proper DOCTYPE, `<head>`, and `<body>`
+- [x] Set browser tab title to "Drawing Prompt"
+- [x] Add embedded `<style>` block for all CSS
+- [x] Add embedded `<script>` block for all JavaScript
 
 ### Visual Layout & Style
 
-- [ ] Set page background to white with sans-serif font
-- [ ] Add app title "Drawing Prompt" displayed prominently at top
-- [ ] Center all content on the page
-- [ ] Style toolbar as a row above the canvas
+- [x] Set page background to white with sans-serif font
+- [x] Add app title "Drawing Prompt" displayed prominently at top
+- [x] Center all content on the page
+- [x] Style toolbar as a row above the canvas
 
 ### Random Drawing Prompt
 
-- [ ] Define array of ~20 drawing prompt strings (cat, house, tree, etc.)
-- [ ] Write function to select a random prompt from the array on load
-- [ ] Display prompt in format "Draw: [prompt]" below the title
+- [x] Define array of ~20 drawing prompt strings (cat, house, tree, etc.)
+- [x] Write function to select a random prompt from the array on load
+- [x] Display prompt in format "Draw: [prompt]" below the title
 
 ### Canvas Setup
 
-- [ ] Add `<canvas>` element with internal resolution 800×500
-- [ ] Set canvas CSS to scale to window width while preserving aspect ratio
-- [ ] Add thin visible border around the canvas
-- [ ] Fill canvas background white on initialization
+- [x] Add `<canvas>` element with internal resolution 800×500
+- [x] Set canvas CSS to scale to window width while preserving aspect ratio
+- [x] Add thin visible border around the canvas
+- [x] Fill canvas background white on initialization
 
 ### Drawing Engine (Mouse)
 
-- [ ] Track mouse `mousedown` to begin a stroke and record start position
-- [ ] Track `mousemove` to accumulate points while mouse button is held
-- [ ] Implement smooth bezier curves using `quadraticCurveTo` with midpoints
-- [ ] Set `lineCap` and `lineJoin` to `'round'` for natural stroke feel
-- [ ] Set fixed brush size to 8px
-- [ ] Track `mouseup` and `mouseleave` to end a stroke
-- [ ] Scale mouse coordinates using `canvas.width / rect.width` and `canvas.height / rect.height`
+- [x] Track mouse `mousedown` to begin a stroke and record start position
+- [x] Track `mousemove` to accumulate points while mouse button is held
+- [x] Implement smooth bezier curves using `quadraticCurveTo` with midpoints
+- [x] Set `lineCap` and `lineJoin` to `'round'` for natural stroke feel
+- [x] Set fixed brush size to 8px
+- [x] Track `mouseup` and `mouseleave` to end a stroke
+- [x] Scale mouse coordinates using `canvas.width / rect.width` and `canvas.height / rect.height`
 
 ### Touch Support
 
-- [ ] Add `touchstart` handler mapped to stroke begin (using `e.touches[0]`)
-- [ ] Add `touchmove` handler mapped to stroke continue
-- [ ] Add `touchend` handler mapped to stroke end
-- [ ] Call `e.preventDefault()` on all touch events to block page scroll
+- [x] Add `touchstart` handler mapped to stroke begin (using `e.touches[0]`)
+- [x] Add `touchmove` handler mapped to stroke continue
+- [x] Add `touchend` handler mapped to stroke end
+- [x] Call `e.preventDefault()` on all touch events to block page scroll
 
 ### Color Buttons
 
-- [ ] Add Brown button (`#795548` background, white text) to toolbar
-- [ ] Add Purple button (`#7b1fa2` background, white text) to toolbar
-- [ ] Set Brown as the default active color on load
-- [ ] Switch active drawing color when a color button is clicked
+- [x] Add Brown button (`#795548` background, white text) to toolbar
+- [x] Add Purple button (`#7b1fa2` background, white text) to toolbar
+- [x] Set Brown as the default active color on load
+- [x] Switch active drawing color when a color button is clicked
 
 ### Eraser
 
-- [ ] Add Eraser button (grey `#9e9e9e` background, white text) to toolbar
-- [ ] Implement eraser as white-paint stroke (same 8px size as drawing)
+- [x] Add Eraser button (grey `#9e9e9e` background, white text) to toolbar
+- [x] Implement eraser as white-paint stroke (same 8px size as drawing)
 
 ### Clear Button
 
-- [ ] Add Clear button (red `#e53935` background, white text) to toolbar
-- [ ] On click, fill entire canvas with white
-- [ ] On click, clear the saved undo snapshot
+- [x] Add Clear button (red `#e53935` background, white text) to toolbar
+- [x] On click, fill entire canvas with white
+- [x] On click, clear the saved undo snapshot
 
 ### Active Tool Indicator
 
-- [ ] Apply a bright white outline to whichever tool button is currently active
-- [ ] Update the active indicator when user switches tools
+- [x] Apply a bright white outline to whichever tool button is currently active
+- [x] Update the active indicator when user switches tools
 
 ### Single-Level Undo
 
-- [ ] Save `getImageData` snapshot on each `mousedown` / `touchstart`
-- [ ] Listen for `Ctrl+Z` (and `Cmd+Z` on Mac) keydown event
-- [ ] Restore the saved snapshot via `putImageData` on undo
+- [x] Save `getImageData` snapshot on each `mousedown` / `touchstart`
+- [x] Listen for `Ctrl+Z` (and `Cmd+Z` on Mac) keydown event
+- [x] Restore the saved snapshot via `putImageData` on undo
